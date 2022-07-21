@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e0e0d61159.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="post2.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="commu_title">
+            커뮤니티
+        </div>
+    </header>
+    <form method="post" action="/write">
+       아이디 <p><input type="text" name="id" id="id"></p>
+       타이틀 <p><input type="text" name="title" id="title"></p>
+        내용 <p><input type="text" name="content" id="content"></p>
+        <v-file-input class="input" type="file" counter show-size label="이미지 제출(여러개 가능)"
+        outlined dense multiple prepend-icon="mdi-camera" style="width: 400px; margin-left: 100px;"
+        @change="onImageChange"/>
+<v-img v-for="(item,i) in uploadimageurl" :key="i" :src="item.url"
+      contain height="150px" width="200px" style="border: 2px solid black; margin-left:100px;"/>
+      
+            <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+            <button type="submit">전송</button>
+    </form>
+</body>
+</html>
